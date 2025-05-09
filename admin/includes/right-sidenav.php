@@ -4,10 +4,10 @@
                 <span class="material-symbols-outlined">menu</span>
             </button>
         
-        <div class="theme-toggler">
+        <!-- <div class="theme-toggler">
             <span class="material-symbols-outlined active">light_mode</span>
             <span class="material-symbols-outlined">dark_mode</span>
-        </div>
+        </div> -->
 
         <div class="profile">
             <div class="info">
