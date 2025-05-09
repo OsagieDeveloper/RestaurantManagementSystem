@@ -1,0 +1,168 @@
+[15-Apr-2025 06:06:01 UTC] PHP Warning:  require_once(./config/database.php): Failed to open stream: No such file or directory in /home/eaglcctp/public_html/res/index.php on line 3
+[15-Apr-2025 06:06:01 UTC] PHP Fatal error:  Uncaught Error: Failed opening required './config/database.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/eaglcctp/public_html/res/index.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/eaglcctp/public_html/res/index.php on line 3
+[15-Apr-2025 06:19:05 UTC] PHP Warning:  require_once(./config/database.php): Failed to open stream: No such file or directory in /home/eaglcctp/public_html/res/index.php on line 3
+[15-Apr-2025 06:19:05 UTC] PHP Fatal error:  Uncaught Error: Failed opening required './config/database.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/eaglcctp/public_html/res/index.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/eaglcctp/public_html/res/index.php on line 3
+[15-Apr-2025 06:21:54 UTC] PHP Warning:  require_once(./config/database.php): Failed to open stream: No such file or directory in /home/eaglcctp/public_html/res/index.php on line 3
+[15-Apr-2025 06:21:54 UTC] PHP Fatal error:  Uncaught Error: Failed opening required './config/database.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/eaglcctp/public_html/res/index.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/eaglcctp/public_html/res/index.php on line 3
+[15-Apr-2025 07:24:06 UTC] PHP Warning:  require_once(./config/database.php): Failed to open stream: No such file or directory in /home/eaglcctp/public_html/res/index.php on line 3
+[15-Apr-2025 07:24:06 UTC] PHP Fatal error:  Uncaught Error: Failed opening required './config/database.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/eaglcctp/public_html/res/index.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/eaglcctp/public_html/res/index.php on line 3
+[15-Apr-2025 07:24:10 UTC] PHP Warning:  require_once(./config/database.php): Failed to open stream: No such file or directory in /home/eaglcctp/public_html/res/index.php on line 3
+[15-Apr-2025 07:24:10 UTC] PHP Fatal error:  Uncaught Error: Failed opening required './config/database.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/eaglcctp/public_html/res/index.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/eaglcctp/public_html/res/index.php on line 3
+[15-Apr-2025 07:24:13 UTC] PHP Warning:  require_once(./config/database.php): Failed to open stream: No such file or directory in /home/eaglcctp/public_html/res/index.php on line 3
+[15-Apr-2025 07:24:13 UTC] PHP Fatal error:  Uncaught Error: Failed opening required './config/database.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/eaglcctp/public_html/res/index.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/eaglcctp/public_html/res/index.php on line 3
+[15-Apr-2025 07:24:14 UTC] PHP Warning:  require_once(./config/database.php): Failed to open stream: No such file or directory in /home/eaglcctp/public_html/res/index.php on line 3
+[15-Apr-2025 07:24:14 UTC] PHP Fatal error:  Uncaught Error: Failed opening required './config/database.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/eaglcctp/public_html/res/index.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/eaglcctp/public_html/res/index.php on line 3
+[15-Apr-2025 07:24:44 UTC] PHP Warning:  require_once(./config/database.php): Failed to open stream: No such file or directory in /home/eaglcctp/public_html/res/index.php on line 3
+[15-Apr-2025 07:24:44 UTC] PHP Fatal error:  Uncaught Error: Failed opening required './config/database.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/eaglcctp/public_html/res/index.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/eaglcctp/public_html/res/index.php on line 3
+[15-Apr-2025 07:40:11 UTC] PHP Warning:  require_once(./config/database.php): Failed to open stream: No such file or directory in /home/eaglcctp/public_html/res/index.php on line 3
+[15-Apr-2025 07:40:11 UTC] PHP Fatal error:  Uncaught Error: Failed opening required './config/database.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/eaglcctp/public_html/res/index.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/eaglcctp/public_html/res/index.php on line 3
+[15-Apr-2025 07:41:02 UTC] PHP Warning:  require_once(./config/database.php): Failed to open stream: No such file or directory in /home/eaglcctp/public_html/res/index.php on line 3
+[15-Apr-2025 07:41:02 UTC] PHP Fatal error:  Uncaught Error: Failed opening required './config/database.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/eaglcctp/public_html/res/index.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/eaglcctp/public_html/res/index.php on line 3
+[15-Apr-2025 07:41:05 UTC] PHP Warning:  require_once(./config/database.php): Failed to open stream: No such file or directory in /home/eaglcctp/public_html/res/index.php on line 3
+[15-Apr-2025 07:41:05 UTC] PHP Fatal error:  Uncaught Error: Failed opening required './config/database.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/eaglcctp/public_html/res/index.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/eaglcctp/public_html/res/index.php on line 3
+[15-Apr-2025 07:41:15 UTC] PHP Warning:  require_once(./config/database.php): Failed to open stream: No such file or directory in /home/eaglcctp/public_html/res/index.php on line 3
+[15-Apr-2025 07:41:15 UTC] PHP Fatal error:  Uncaught Error: Failed opening required './config/database.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/eaglcctp/public_html/res/index.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/eaglcctp/public_html/res/index.php on line 3
+[15-Apr-2025 07:41:22 UTC] PHP Warning:  require_once(./config/database.php): Failed to open stream: No such file or directory in /home/eaglcctp/public_html/res/index.php on line 3
+[15-Apr-2025 07:41:22 UTC] PHP Fatal error:  Uncaught Error: Failed opening required './config/database.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/eaglcctp/public_html/res/index.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/eaglcctp/public_html/res/index.php on line 3
+[15-Apr-2025 07:46:40 UTC] PHP Warning:  require_once(./config/database.php): Failed to open stream: No such file or directory in /home/eaglcctp/public_html/restaurant/index.php on line 3
+[15-Apr-2025 07:46:40 UTC] PHP Fatal error:  Uncaught Error: Failed opening required './config/database.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/eaglcctp/public_html/restaurant/index.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/eaglcctp/public_html/restaurant/index.php on line 3
+[15-Apr-2025 07:47:21 UTC] PHP Warning:  require_once(./config/database.php): Failed to open stream: No such file or directory in /home/eaglcctp/public_html/restaurant/index.php on line 3
+[15-Apr-2025 07:47:21 UTC] PHP Fatal error:  Uncaught Error: Failed opening required './config/database.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/eaglcctp/public_html/restaurant/index.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/eaglcctp/public_html/restaurant/index.php on line 3
+[15-Apr-2025 07:49:01 UTC] PHP Warning:  require_once(./config/database.php): Failed to open stream: No such file or directory in /home/eaglcctp/public_html/restaurant/index.php on line 3
+[15-Apr-2025 07:49:01 UTC] PHP Fatal error:  Uncaught Error: Failed opening required './config/database.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/eaglcctp/public_html/restaurant/index.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/eaglcctp/public_html/restaurant/index.php on line 3
+[15-Apr-2025 07:58:05 UTC] PHP Warning:  require_once(./config/database.php): Failed to open stream: No such file or directory in /home/eaglcctp/public_html/restaurant/index.php on line 3
+[15-Apr-2025 07:58:05 UTC] PHP Fatal error:  Uncaught Error: Failed opening required './config/database.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/eaglcctp/public_html/restaurant/index.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/eaglcctp/public_html/restaurant/index.php on line 3
+[15-Apr-2025 07:58:25 UTC] PHP Warning:  require_once(./config/database.php): Failed to open stream: No such file or directory in /home/eaglcctp/public_html/restaurant/index.php on line 3
+[15-Apr-2025 07:58:25 UTC] PHP Fatal error:  Uncaught Error: Failed opening required './config/database.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/eaglcctp/public_html/restaurant/index.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/eaglcctp/public_html/restaurant/index.php on line 3
+[15-Apr-2025 07:59:13 UTC] PHP Warning:  require_once(./config/database.php): Failed to open stream: No such file or directory in /home/eaglcctp/public_html/restaurant/index.php on line 3
+[15-Apr-2025 07:59:13 UTC] PHP Fatal error:  Uncaught Error: Failed opening required './config/database.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/eaglcctp/public_html/restaurant/index.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/eaglcctp/public_html/restaurant/index.php on line 3
+[15-Apr-2025 08:17:37 UTC] PHP Warning:  require_once(./config/database.php): Failed to open stream: No such file or directory in /home/eaglcctp/public_html/restaurant/index.php on line 3
+[15-Apr-2025 08:17:37 UTC] PHP Fatal error:  Uncaught Error: Failed opening required './config/database.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/eaglcctp/public_html/restaurant/index.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/eaglcctp/public_html/restaurant/index.php on line 3
+[15-Apr-2025 08:21:43 UTC] PHP Warning:  require_once(./config/database.php): Failed to open stream: No such file or directory in /home/eaglcctp/public_html/restaurant/login.php on line 3
+[15-Apr-2025 08:21:43 UTC] PHP Fatal error:  Uncaught Error: Failed opening required './config/database.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home/eaglcctp/public_html/restaurant/login.php:3
+Stack trace:
+#0 {main}
+  thrown in /home/eaglcctp/public_html/restaurant/login.php on line 3
+[20-Apr-2025 14:01:56 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'eaglcctp_restaurant.admin' doesn't exist in /home/eaglcctp/public_html/restaurant/model/function.php:54
+Stack trace:
+#0 /home/eaglcctp/public_html/restaurant/model/function.php(54): mysqli->prepare()
+#1 /home/eaglcctp/public_html/restaurant/model/auth.php(12): adminEmailExists()
+#2 /home/eaglcctp/public_html/restaurant/login.php(5): require_once('/home/eaglcctp/...')
+#3 {main}
+  thrown in /home/eaglcctp/public_html/restaurant/model/function.php on line 54
+[20-Apr-2025 14:06:51 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'eaglcctp_restaurant.admin' doesn't exist in /home/eaglcctp/public_html/restaurant/model/function.php:13
+Stack trace:
+#0 /home/eaglcctp/public_html/restaurant/model/function.php(13): mysqli->prepare()
+#1 /home/eaglcctp/public_html/restaurant/model/auth.php(24): loginUser()
+#2 /home/eaglcctp/public_html/restaurant/login.php(5): require_once('/home/eaglcctp/...')
+#3 {main}
+  thrown in /home/eaglcctp/public_html/restaurant/model/function.php on line 13
+[20-Apr-2025 14:12:50 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'eaglcctp_restaurant.admin' doesn't exist in /home/eaglcctp/public_html/restaurant/model/function.php:13
+Stack trace:
+#0 /home/eaglcctp/public_html/restaurant/model/function.php(13): mysqli->prepare()
+#1 /home/eaglcctp/public_html/restaurant/model/auth.php(24): loginUser()
+#2 /home/eaglcctp/public_html/restaurant/login.php(5): require_once('/home/eaglcctp/...')
+#3 {main}
+  thrown in /home/eaglcctp/public_html/restaurant/model/function.php on line 13
+[20-Apr-2025 14:16:25 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'eaglcctp_restaurant.admin' doesn't exist in /home/eaglcctp/public_html/restaurant/model/function.php:13
+Stack trace:
+#0 /home/eaglcctp/public_html/restaurant/model/function.php(13): mysqli->prepare()
+#1 /home/eaglcctp/public_html/restaurant/model/auth.php(24): loginUser()
+#2 /home/eaglcctp/public_html/restaurant/login.php(5): require_once('/home/eaglcctp/...')
+#3 {main}
+  thrown in /home/eaglcctp/public_html/restaurant/model/function.php on line 13
+[20-Apr-2025 14:16:51 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'eaglcctp_restaurant.admin' doesn't exist in /home/eaglcctp/public_html/restaurant/model/function.php:13
+Stack trace:
+#0 /home/eaglcctp/public_html/restaurant/model/function.php(13): mysqli->prepare()
+#1 /home/eaglcctp/public_html/restaurant/model/auth.php(24): loginUser()
+#2 /home/eaglcctp/public_html/restaurant/login.php(5): require_once('/home/eaglcctp/...')
+#3 {main}
+  thrown in /home/eaglcctp/public_html/restaurant/model/function.php on line 13
+[20-Apr-2025 14:17:08 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'eaglcctp_restaurant.admin' doesn't exist in /home/eaglcctp/public_html/restaurant/model/function.php:13
+Stack trace:
+#0 /home/eaglcctp/public_html/restaurant/model/function.php(13): mysqli->prepare()
+#1 /home/eaglcctp/public_html/restaurant/model/auth.php(24): loginUser()
+#2 /home/eaglcctp/public_html/restaurant/login.php(5): require_once('/home/eaglcctp/...')
+#3 {main}
+  thrown in /home/eaglcctp/public_html/restaurant/model/function.php on line 13
+[20-Apr-2025 14:17:26 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'eaglcctp_restaurant.admin' doesn't exist in /home/eaglcctp/public_html/restaurant/model/function.php:13
+Stack trace:
+#0 /home/eaglcctp/public_html/restaurant/model/function.php(13): mysqli->prepare()
+#1 /home/eaglcctp/public_html/restaurant/model/auth.php(24): loginUser()
+#2 /home/eaglcctp/public_html/restaurant/login.php(5): require_once('/home/eaglcctp/...')
+#3 {main}
+  thrown in /home/eaglcctp/public_html/restaurant/model/function.php on line 13
+[20-Apr-2025 14:18:20 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'eaglcctp_restaurant.admin' doesn't exist in /home/eaglcctp/public_html/restaurant/model/function.php:13
+Stack trace:
+#0 /home/eaglcctp/public_html/restaurant/model/function.php(13): mysqli->prepare()
+#1 /home/eaglcctp/public_html/restaurant/model/auth.php(24): loginUser()
+#2 /home/eaglcctp/public_html/restaurant/login.php(5): require_once('/home/eaglcctp/...')
+#3 {main}
+  thrown in /home/eaglcctp/public_html/restaurant/model/function.php on line 13
+[20-Apr-2025 14:21:55 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'eaglcctp_restaurant.admin' doesn't exist in /home/eaglcctp/public_html/restaurant/model/function.php:13
+Stack trace:
+#0 /home/eaglcctp/public_html/restaurant/model/function.php(13): mysqli->prepare()
+#1 /home/eaglcctp/public_html/restaurant/model/auth.php(24): loginUser()
+#2 /home/eaglcctp/public_html/restaurant/login.php(5): require_once('/home/eaglcctp/...')
+#3 {main}
+  thrown in /home/eaglcctp/public_html/restaurant/model/function.php on line 13

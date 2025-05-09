@@ -178,3 +178,41 @@
         global $mysqli;
         return htmlspecialchars($mysqli->real_escape_string($input));
     }
+
+    function addMenuItem($name, $price, $image) {
+        global $mysqli;
+        $stmt = $mysqli->prepare("INSERT INTO menu_items (name, price, image) VALUES (?, ?, ?)");
+        $stmt->bind_param("sss", $name, $price, $image);
+        $stmt->execute();
+        $stmt->close();
+        $mysqli->close();
+    }
+
+    function fetchMenuItems() {
+        global $mysqli;
+        $stmt = $mysqli->prepare("SELECT * FROM menus");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $menu_items = $result->fetch_all(MYSQLI_ASSOC);
+        $stmt->close();
+        $mysqli->close();
+        return $menu_items;
+    }
+
+    function updateMenuItem($id, $name, $price, $image) {
+        global $mysqli;
+        $stmt = $mysqli->prepare("UPDATE menu_items SET name = ?, price = ?, image = ? WHERE id = ?");
+        $stmt->bind_param("sssi", $name, $price, $image, $id);
+        $stmt->execute();
+        $stmt->close();
+        $mysqli->close();
+    }
+
+    function deleteMenuItem($id) {
+        global $mysqli;
+        $stmt = $mysqli->prepare("DELETE FROM menu_items WHERE id = ?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $stmt->close();
+        $mysqli->close();
+    }

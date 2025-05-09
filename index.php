@@ -29,8 +29,8 @@
             and free delivery.
           </p>
           <div class="header__btns">
-            <a href="#" class="btn" style="color: white">Order Now</a>
-            <a href="#">Make Reservation</a>
+            <a href="./menu.php" class="btn" style="color: white">Order Now</a>
+            <a href="./reservation.php">Make Reservation</a>
           </div>
         </div>
       </div>
@@ -64,84 +64,26 @@
       <div class="swiper">
         <div class="swiper-wrapper">
           <!-- Slides -->
-          <div class="swiper-slide">
-            <div class="menu__card">
-              <img src="./public/assets/img/menu-1.png" alt="menu" />
-              <div class="menu__card__details">
-                <h4>Italian Pizza</h4>
-                <h5><span>$</span>7.49</h5>
-                <a href="#">
-                  Order Now
-                  <span><i class="ri-arrow-right-line"></i></span>
-                </a>
+          <?php
+            $menu_items = fetchMenuItems();
+            foreach ($menu_items as $item) {
+          ?>
+            <div class="swiper-slide">
+              <div class="menu__card">
+                <img src="<?php echo htmlspecialchars($item['image']); ?>" alt="menu" />
+                <div class="menu__card__details">
+                  <h4><?php echo htmlspecialchars($item['name']); ?></h4>
+                  <h5><span>$</span><?php echo htmlspecialchars($item['price']); ?></h5>
+                  <a href="payment.php?amount=<?php echo htmlspecialchars($item['price']); ?>&food=<?php echo urlencode($item['name']); ?>">
+                    Order Now
+                    <span><i class="ri-arrow-right-line"></i></span>
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="menu__card">
-              <img src="./public/assets/img/menu-2.png" alt="menu" />
-              <div class="menu__card__details">
-                <h4>Burrito Wrap</h4>
-                <h5><span>$</span>4.49</h5>
-                <a href="#">
-                  Order Now
-                  <span><i class="ri-arrow-right-line"></i></span>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="menu__card">
-              <img src="./public/assets/img/menu-3.webp" alt="menu" />
-              <div class="menu__card__details">
-                <h4>Red Sause Pasta</h4>
-                <h5><span>$</span>5.99</h5>
-                <a href="#">
-                  Order Now
-                  <span><i class="ri-arrow-right-line"></i></span>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="menu__card">
-              <img src="./public/assets/img/menu-4.webp" alt="menu" />
-              <div class="menu__card__details">
-                <h4>Fresh Pan Pizza</h4>
-                <h5><span>$</span>6.49</h5>
-                <a href="#">
-                  Order Now
-                  <span><i class="ri-arrow-right-line"></i></span>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="menu__card">
-              <img src="./public/assets/img/menu-5.png" alt="menu" />
-              <div class="menu__card__details">
-                <h4>Chicken Nuggets</h4>
-                <h5><span>$</span>4.99</h5>
-                <a href="#">
-                  Order Now
-                  <span><i class="ri-arrow-right-line"></i></span>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="menu__card">
-              <img src="./public/assets/img/menu-2.png" alt="menu" />
-              <div class="menu__card__details">
-                <h4>Dum Biryani</h4>
-                <h5><span>$</span>8.49</h5>
-                <a href="#">
-                  Order Now
-                  <span><i class="ri-arrow-right-line"></i></span>
-                </a>
-              </div>
-            </div>
-          </div>
+          <?php
+            }
+          ?>
         </div>
       </div>
     </section>

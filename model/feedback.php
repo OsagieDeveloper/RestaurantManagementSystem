@@ -17,7 +17,7 @@
             }else{
                 // Insert feedback into the database
                 $stmt = $mysqli->prepare("INSERT INTO feedbacks (rating, dish_review, general_feedback) VALUES (?, ?, ?)");
-                $stmt->bind_param("iss", $rating, $dish_review, $general_feedback);
+                $stmt->bind_param("sss", $rating, $dish_review, $general_feedback);
 
                 if ($stmt->execute()) {
                     $suc = "Thank you for your feedback!";

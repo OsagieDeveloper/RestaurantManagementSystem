@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!empty($staffName) && !empty($position) && !empty($email) && !empty($phone)) {
             // Check for duplicate email, phone, or staff ID
             $checkQuery = $mysqli->prepare(
-                "SELECT COUNT(*) FROM users WHERE email = ? OR phone_number = ? OR id = ?"
+                "SELECT COUNT(*) FROM users WHERE email = ? OR phone_number = ? OR staff_id = ?"
             );
             $checkQuery->bind_param("sss", $email, $phone, $staffId);
             $checkQuery->execute();
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             } else {
                 // Insert the new staff member
                 $stmt = $mysqli->prepare(
-                    "INSERT INTO users (id, full_name, position, email, phone_number) VALUES (?, ?, ?, ?, ?)"
+                    "INSERT INTO users (staff_id, full_name, position, email, phone_number) VALUES (?, ?, ?, ?, ?)"
                 );
                 $stmt->bind_param("sssss", $staffId, $staffName, $position, $email, $phone);
         
@@ -119,6 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <thead>
                         <tr>
                             <th>ID</th>
+                            <th>Staff ID</th>
                             <th>Name</th>
                             <th>Position</th>
                             <th>Email</th>
@@ -127,13 +128,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </thead>
                     <tbody>
                         <?php
-                        $query = "SELECT id, full_name, position, email, phone_number FROM users";
+                        $query = "SELECT id, staff_id, full_name, position, email, phone_number FROM users";
                         $result = $mysqli->query($query);
 
                         if ($result->num_rows > 0) {
                             while ($row = $result->fetch_assoc()) { ?>
                                 <tr>
                                     <td><?php echo htmlspecialchars($row['id']); ?></td>
+                                    <td><?php echo htmlspecialchars($row['staff_id']); ?></td>
                                     <td><?php echo htmlspecialchars($row['full_name']); ?></td>
                                     <td><?php echo htmlspecialchars($row['position']); ?></td>
                                     <td><?php echo htmlspecialchars($row['email']); ?></td>

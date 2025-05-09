@@ -332,7 +332,7 @@ main table tbody td{
 
 /*RIGHT*/
 
-.right{ margin-top: 1.4rem;}
+.right{ margin-top: 1.4rem; width: 12rem; }
 
     .right h2{ color: var(--clr-dark);}
 

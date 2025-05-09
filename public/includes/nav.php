@@ -3,7 +3,7 @@
         <div class="nav__header">
           <div class="nav__logo">
             <a href="./" class="logo">
-              <img src="./public/assets/img/logo.png" alt="logo" />
+              <img src="./public/assets/im2g/logo.png" alt="logo" />
               <span>Restaurant</span>
             </a>
           </div>

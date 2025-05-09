@@ -20,27 +20,7 @@
                     if (createReservation($name, $table_id, $date, $time, $number_of_guests, $special_requests)) {
                         $suc = "Reservation Created Successfully";  
                         
-                        // Send confirmation email
-                        $subject = "Reservation Confirmation";
-                        $message = "
-                        Dear $name,\n\n
-                        Your reservation has been successfully made.\n
-                        Date: $date\n
-                        Time: $time\n
-                        Number of Guests: $number_of_guests\n
-                        Special Requests: $special_requests\n\n
-                        Thank you for choosing us!\n\n
-                        Regards,\nRestaurant Team
-                        ";
-                        
-                        $to = "customer@example.com"; 
-                        $headers = "From: restaurant@example.com";
-
-                        if (mail($to, $subject, $message, $headers)) {
-                            $err = 'Reservation created successfully and confirmation email sent';
-                        } else {
-                            $err = 'Failed to send confirmation email';
-                        }
+                    
 
                     } else {
                         $err = "An error occurred while trying to reserve a table, please try again ".createReservation($name, $table_id, $date, $time, $number_of_guests, $special_requests);

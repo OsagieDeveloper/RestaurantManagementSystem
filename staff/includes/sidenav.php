@@ -15,27 +15,27 @@
         </a>
 
         <a href="./reservation">
-            <span class="material-symbols-outlined"> person_outline </span>
+            <span class="material-symbols-outlined"> restaurant </span>
             <h3>Reservations</h3>
         </a>
 
         <a href="./add-inventory">
-            <span class="material-symbols-outlined"> insights </span>
+            <span class="material-symbols-outlined"> add_circle </span>
             <h3>Add Inventory</h3>
         </a>
 
         <a href="./inventory">
-            <span class="material-symbols-outlined"> insights </span>
+            <span class="material-symbols-outlined"> inventory </span>
             <h3>Inventory</h3>
         </a>
 
         <a href="./scheduling">
-            <span class="material-symbols-outlined"> insights </span>
+            <span class="material-symbols-outlined"> schedule </span>
             <h3>My Schedule</h3>
         </a>
 
         <a href="./time-off-request">
-            <span class="material-symbols-outlined"> insights </span>
+            <span class="material-symbols-outlined"> work_history </span>
             <h3>Request Time-Off</h3>
         </a>
 
