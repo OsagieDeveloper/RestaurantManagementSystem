@@ -12,7 +12,7 @@
             }else if(!emailExists($email) && !adminEmailExists($email)){
                 $err = "No profile found, please create an account to proceed";
             }else{
-                if($role === 'staff'){
+                if($role === 'Staff'){
                     if (loginStaff($email, $password)) {
                         $suc = "Login Successful";
                         header('Location: ./staff');
@@ -20,10 +20,18 @@
                     } else {
                         $err = "Invalid credentials.";
                     }
-                }else if($role === 'admin'){
+                }else if($role === 'Admin'){
                     if (loginUser($email, $password)) {
                         $suc = "Login Successful";
                         header('Location: ./admin');
+                        exit();
+                    } else {
+                        $err = "Invalid credentials.";
+                    }
+                }else if($role === 'Customer'){
+                    if (loginStaff($email, $password)) {
+                        $suc = "Login Successful";
+                        header('Location: ./customer');
                         exit();
                     } else {
                         $err = "Invalid credentials.";
@@ -36,7 +44,7 @@
             $password = $_POST['password'];
             $phoneNumber = secureData($_POST['mobile']);
             $address = secureData($_POST['address']);
-            $role = 'Staff'; // Default role for signup
+            $role = secureData($_POST['role']);
         
             // Check if all fields are filled
             if (empty($fullName) || empty($email) || empty($password) || empty($phoneNumber) || empty($address)) {

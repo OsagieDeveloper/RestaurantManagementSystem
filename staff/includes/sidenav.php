@@ -29,6 +29,11 @@
             <h3>Inventory</h3>
         </a>
 
+        <a href="./orders">
+            <span class="material-symbols-outlined"> receipt </span>
+            <h3>Orders</h3>
+        </a>
+
         <a href="./scheduling">
             <span class="material-symbols-outlined"> schedule </span>
             <h3>My Schedule</h3>

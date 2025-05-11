@@ -179,40 +179,89 @@
         return htmlspecialchars($mysqli->real_escape_string($input));
     }
 
-    function addMenuItem($name, $price, $image) {
+    function addMenuItem($name, $description, $price, $imagePath, $type) {
         global $mysqli;
-        $stmt = $mysqli->prepare("INSERT INTO menu_items (name, price, image) VALUES (?, ?, ?)");
-        $stmt->bind_param("sss", $name, $price, $image);
-        $stmt->execute();
+        
+        $stmt = $mysqli->prepare("INSERT INTO menus (name, description, price, image, type) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssdss", $name, $description, $price, $imagePath, $type);
+        $result = $stmt->execute();
         $stmt->close();
-        $mysqli->close();
+        return $result;
     }
 
-    function fetchMenuItems() {
+    function fetchMenuItems($type = '') {
         global $mysqli;
-        $stmt = $mysqli->prepare("SELECT * FROM menus");
+        
+        if ($type == '') {
+            $stmt = $mysqli->prepare("SELECT * FROM menus");
+        } else {
+            $stmt = $mysqli->prepare("SELECT * FROM menus WHERE type = ?");
+            $stmt->bind_param("s", $type);
+        }
+        
         $stmt->execute();
         $result = $stmt->get_result();
         $menu_items = $result->fetch_all(MYSQLI_ASSOC);
         $stmt->close();
-        $mysqli->close();
         return $menu_items;
     }
 
-    function updateMenuItem($id, $name, $price, $image) {
+    function fetchMenuItemsByType($type) {
         global $mysqli;
-        $stmt = $mysqli->prepare("UPDATE menu_items SET name = ?, price = ?, image = ? WHERE id = ?");
-        $stmt->bind_param("sssi", $name, $price, $image, $id);
+        
+        $stmt = $mysqli->prepare("SELECT * FROM menus WHERE type = ?");
+        $stmt->bind_param("s", $type);
+        
         $stmt->execute();
+        $result = $stmt->get_result();
+        $menu_items = $result->fetch_all(MYSQLI_ASSOC);
         $stmt->close();
-        $mysqli->close();
+        return $menu_items;
+    }
+
+    function updateMenuItem($id, $name, $description, $price, $imagePath, $type) {
+        global $mysqli;
+        
+        $stmt = $mysqli->prepare("UPDATE menus SET name = ?, description = ?, price = ?, image = ?, type = ? WHERE id = ?");
+        $stmt->bind_param("ssdssi", $name, $description, $price, $imagePath, $type, $id);
+        $result = $stmt->execute();
+        $stmt->close();
+        return $result;
     }
 
     function deleteMenuItem($id) {
         global $mysqli;
-        $stmt = $mysqli->prepare("DELETE FROM menu_items WHERE id = ?");
+        
+        // First, get the image path to delete the file
+        $stmt = $mysqli->prepare("SELECT image FROM menus WHERE id = ?");
         $stmt->bind_param("i", $id);
         $stmt->execute();
+        $result = $stmt->get_result();
+        $menu = $result->fetch_assoc();
         $stmt->close();
-        $mysqli->close();
+        
+        // Delete the image file if it exists
+        if ($menu && !empty($menu['image']) && file_exists($menu['image'])) {
+            unlink($menu['image']);
+        }
+        
+        // Now delete the record from database
+        $stmt = $mysqli->prepare("DELETE FROM menus WHERE id = ?");
+        $stmt->bind_param("i", $id);
+        $result = $stmt->execute();
+        $stmt->close();
+        return $result;
     }
+
+    function getMenuItemById($id) {
+        global $mysqli;
+        
+        $stmt = $mysqli->prepare("SELECT * FROM menus WHERE id = ?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $menu_item = $result->fetch_assoc();
+        $stmt->close();
+        return $menu_item;
+    }
+?>

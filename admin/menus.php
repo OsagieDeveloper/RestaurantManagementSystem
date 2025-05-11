@@ -7,12 +7,13 @@ if(!isLoggedIn()){
     die();
 }
 
-// Handle form submission to add a staff member
+// Handle form submission to add a menu item
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['addMenu'])) {
         $menuId = 'menu' . uniqid();
         $menuName = $_POST['menu_name'] ?? '';
         $price = $_POST['price'] ?? '';
+        $type = $_POST['type'] ?? 'food';
         $description = $_POST['description'] ?? '';
         $imagePath = '';
         
@@ -34,32 +35,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         
         if (!empty($menuName) && !empty($price) && !empty($description) && !empty($imagePath)) {
-            // Check for duplicate email, phone, or staff ID
-            $checkQuery = $mysqli->prepare(
-                "SELECT COUNT(*) FROM menus WHERE name = ? OR price = ? OR id = ?"
+            // Insert the new menu item
+            $stmt = $mysqli->prepare(
+                "INSERT INTO menus (id, name, price, description, image, type) VALUES (?, ?, ?, ?, ?, ?)"
             );
-            $checkQuery->bind_param("sss", $menuName, $price, $menuId);
-            $checkQuery->execute();
-            $checkQuery->bind_result($count);
-            $checkQuery->fetch();
-            $checkQuery->close();
-        
-            if ($count > 0) {
-                $errorMessage = "Item is already in the menu.";
+            $stmt->bind_param("ssssss", $menuId, $menuName, $price, $description, $imagePath, $type);
+    
+            if ($stmt->execute()) {
+                $successMessage = "Menu item added successfully!";
             } else {
-                // Insert the new staff member
-                $stmt = $mysqli->prepare(
-                    "INSERT INTO menus (id, name, price, description, image) VALUES (?, ?, ?, ?, ?)"
-                );
-                $stmt->bind_param("sssss", $menuId, $menuName, $price, $description, $imagePath);
-        
-                if ($stmt->execute()) {
-                    $successMessage = "Menu added successfully!";
-                } else {
-                    $errorMessage = "Failed to add menu item. Please try again.";
-                }
-                $stmt->close();
+                $errorMessage = "Failed to add menu item. Please try again.";
             }
+            $stmt->close();
         } else {
             $errorMessage = "Please fill out all fields correctly.";
         }
@@ -70,6 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $menuId = $_POST['menu_id'] ?? '';
         $menuName = $_POST['edit_menu_name'] ?? '';
         $price = $_POST['edit_price'] ?? '';
+        $type = $_POST['edit_type'] ?? 'food';
         $description = $_POST['edit_description'] ?? '';
         $imagePath = $_POST['existing_image'] ?? '';
         
@@ -90,9 +78,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         if (!empty($menuId) && !empty($menuName) && !empty($price) && !empty($description)) {
             $stmt = $mysqli->prepare(
-                "UPDATE menus SET name = ?, price = ?, description = ?, image = ? WHERE id = ?"
+                "UPDATE menus SET name = ?, price = ?, description = ?, image = ?, type = ? WHERE id = ?"
             );
-            $stmt->bind_param("sssss", $menuName, $price, $description, $imagePath, $menuId);
+            $stmt->bind_param("ssssss", $menuName, $price, $description, $imagePath, $type, $menuId);
             
             if ($stmt->execute()) {
                 $successMessage = "Menu item updated successfully!";
@@ -111,6 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!empty($menuId)) {
             $stmt = $mysqli->prepare("DELETE FROM menus WHERE id = ?");
             $stmt->bind_param("s", $menuId);
+            
             if ($stmt->execute()) {
                 $successMessage = "Menu item deleted successfully!";
             } else {
@@ -153,7 +142,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         name="menu_name" 
                         required 
                         style="padding: 12px; border: 1px solid #ccc; border-radius: 4px;">
-
+                    
                     <label for="price">Price:</label>
                     <input 
                         type="text" 
@@ -161,7 +150,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         name="price" 
                         required 
                         style="padding: 12px; border: 1px solid #ccc; border-radius: 4px;">
-
+                    
                     <label for="description">Description:</label>
                     <input 
                         type="text" 
@@ -169,7 +158,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         name="description" 
                         required 
                         style="padding: 12px; border: 1px solid #ccc; border-radius: 4px;">
-
+                    
+                    <label for="type">Type:</label>
+                    <select 
+                        id="type" 
+                        name="type" 
+                        required 
+                        style="padding: 12px; border: 1px solid #ccc; border-radius: 4px;">
+                        <option value="food">Food</option>
+                        <option value="drink">Drink</option>
+                        <option value="dessert">Dessert</option>
+                    </select>
+                    
                     <label for="image">Image:</label>
                     <input 
                         type="file" 
@@ -197,13 +197,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <th>Name</th>
                             <th>Price</th>
                             <th>Description</th>
+                            <th>Type</th>
                             <th>Image</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
-                        $query = "SELECT id, name, price, description, image FROM menus";
+                    <?php
+                        $query = "SELECT id, name, price, description, image, type FROM menus";
                         $result = $mysqli->query($query);
 
                         if ($result->num_rows > 0) {
@@ -213,17 +214,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <td><?php echo htmlspecialchars($row['name']); ?></td>
                                     <td><?php echo htmlspecialchars($row['price']); ?></td>
                                     <td><?php echo htmlspecialchars($row['description']); ?></td>
-                                    <td><img src="<?php echo htmlspecialchars($row['image']); ?>" alt="menu image" style="width: 50px; height: auto;"></td>
+                                    <td><?php echo ucfirst($row['type']); ?></td>
+                                    <td><img src="<?php echo htmlspecialchars($row['image']); ?>" alt="menu image" style="width: 50px; height: 50px; object-fit: cover;"></td>
                                     <td>
-                                        <button class="btn btn-primary" onclick="openEditModal('<?php echo $row['id']; ?>', '<?php echo htmlspecialchars($row['name']); ?>', '<?php echo htmlspecialchars($row['price']); ?>', '<?php echo htmlspecialchars($row['description']); ?>', '<?php echo htmlspecialchars($row['image']); ?>')">Edit</button>
+                                        <button class="btn btn-primary" onclick="openEditModal('<?php echo $row['id']; ?>', '<?php echo htmlspecialchars($row['name']); ?>', '<?php echo htmlspecialchars($row['price']); ?>', '<?php echo htmlspecialchars($row['description']); ?>', '<?php echo htmlspecialchars($row['type']); ?>', '<?php echo htmlspecialchars($row['image']); ?>')">Edit</button>
                                         <button class="btn btn-danger" onclick="openDeleteModal('<?php echo $row['id']; ?>', '<?php echo htmlspecialchars($row['name']); ?>')">Delete</button>
                                     </td>
                                 </tr>
                             <?php }
                         } else {
-                            echo "<tr><td colspan='6'>No menus found.</td></tr>";
+                            echo "<tr><td colspan='7'>No menus found.</td></tr>";
                         }
-                        ?>
+                    ?>
                     </tbody>
                 </table>
             </div>
@@ -249,6 +251,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <label for="edit_description">Description:</label>
                 <input type="text" id="edit_description" name="edit_description" required style="padding: 12px; border: 1px solid #ccc; border-radius: 4px;">
                 
+                <label for="edit_type">Type:</label>
+                <select id="edit_type" name="edit_type" required style="padding: 12px; border: 1px solid #ccc; border-radius: 4px;">
+                    <option value="food">Food</option>
+                    <option value="drink">Drink</option>
+                    <option value="dessert">Dessert</option>
+                </select>
+                
                 <label for="edit_image">New Image (optional):</label>
                 <input type="file" id="edit_image" name="edit_image" accept="image/*" style="padding: 12px; border: 1px solid #ccc; border-radius: 4px;">
                 
@@ -272,11 +281,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
     
     <script>
-        function openEditModal(id, name, price, description, image) {
+        function openEditModal(id, name, price, description, type, image) {
             document.getElementById('edit_menu_id').value = id;
             document.getElementById('edit_menu_name').value = name;
             document.getElementById('edit_price').value = price;
             document.getElementById('edit_description').value = description;
+            document.getElementById('edit_type').value = type;
             document.getElementById('existing_image').value = image;
             document.getElementById('editModal').style.display = 'block';
         }

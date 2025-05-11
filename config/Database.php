@@ -1,8 +1,8 @@
 <?php
 
     $host = "localhost";
-    $dbname = "res";
-    $user = "roots";
+    $dbname = "restaurant";
+    $user = "root";
     $password ="";
 
     // Database connection

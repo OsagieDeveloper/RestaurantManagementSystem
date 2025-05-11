@@ -1,0 +1,1 @@
+ALTER TABLE menu_items ADD COLUMN type VARCHAR(10) DEFAULT 'food';

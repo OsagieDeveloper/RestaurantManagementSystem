@@ -21,6 +21,16 @@
             
         </a>
 
+        <a href="./orders">
+            <span class="material-symbols-outlined"> receipt </span>
+            <h3>orders</h3>
+        </a>
+
+        <a href="./menus">
+            <span class="material-symbols-outlined"> menu </span>
+            <h3>Menus</h3>
+        </a>
+
         <a href="./table">
             <span class="material-symbols-outlined"> insights </span>
             <h3>Table</h3>
@@ -46,9 +56,7 @@
             <h3>Time Off Requests</h3>
         </a>
 
-        <a href="./menus">
-            <span class="material-symbols-outlined"> menu </span>
-            <h3>Menus</h3>
+        
         </a>
 
         <a href="./contact">

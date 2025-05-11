@@ -10,14 +10,14 @@
         </div> -->
 
         <div class="profile">
-            <div class="info">
+            <a href="./profile.php" class="info">
                 <p><b>Admin</b></p>
                 <p>Admin</p>
                 <small class="text-muted"></small>
-            </div>
+            </a>
 
             <div class="profile-photo">
-                <img src="https://i.postimg.cc/k5kz0TjQ/1381511-588644811197844-1671954779-n.jpg" alt="image">
+                <a href="./profile.php"><img src="https://i.postimg.cc/k5kz0TjQ/1381511-588644811197844-1671954779-n.jpg" alt="image"></a>
             </div>
         </div>
     </div>

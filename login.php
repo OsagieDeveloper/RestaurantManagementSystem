@@ -64,6 +64,12 @@
                 <div class="infield">
                     <input type="password" placeholder="Password" id="signupPassword" name="password" required />
                 </div>
+                <div class="infield">
+                    <select name="role" id="signupRole" required>
+                        <option value="Staff" >Staff</option>
+                        <option value="Customer">Customer</option>
+                    </select>
+                </div>
                 <button type="submit" name="signup">Sign Up</button>
             </form>
         </div>
@@ -86,8 +92,9 @@
                 <div class="infield">
                     <select id="role" name="role" required>
                         <option value="">-- Select Role --</option>
-                        <option value="admin">Admin</option>
-                        <option value="staff">Staff</option>
+                        <option value="Customer">Customer</option>
+                        <option value="Staff">Staff</option>
+                        <option value="Admin">Admin</option>
                     </select>
                 </div>
                 <a href="#" class="forgot">Forgot your password?</a>

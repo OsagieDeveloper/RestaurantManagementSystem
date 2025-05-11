@@ -119,7 +119,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Staff ID</th>
                             <th>Name</th>
                             <th>Position</th>
                             <th>Email</th>
@@ -128,14 +127,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </thead>
                     <tbody>
                         <?php
-                        $query = "SELECT id, staff_id, full_name, position, email, phone_number FROM users";
+                        $query = "SELECT id, full_name, position, email, phone_number FROM users";
                         $result = $mysqli->query($query);
 
                         if ($result->num_rows > 0) {
                             while ($row = $result->fetch_assoc()) { ?>
                                 <tr>
                                     <td><?php echo htmlspecialchars($row['id']); ?></td>
-                                    <td><?php echo htmlspecialchars($row['staff_id']); ?></td>
                                     <td><?php echo htmlspecialchars($row['full_name']); ?></td>
                                     <td><?php echo htmlspecialchars($row['position']); ?></td>
                                     <td><?php echo htmlspecialchars($row['email']); ?></td>

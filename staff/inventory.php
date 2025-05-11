@@ -85,12 +85,7 @@ if ($result) {
                 </table>
             </div>
 
-            <!-- Inventory Usage Reports -->
-            <div class="inventory-reports" style="margin-bottom: 3rem;">
-                <h2>Inventory Usage Reports</h2>
-                <p>Generate detailed usage reports to plan inventory better and reduce waste.</p>
-                <button style="background-color: #28a745; color: white;">Generate Report</button>
-            </div>
+  
         </main>
 
         <?php require_once './includes/right-sidenav.php'; ?>

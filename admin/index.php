@@ -21,81 +21,109 @@
         <main style="margin-bottom: 6.25rem;">
             <h2 style="margin-bottom: 1.25rem; text-align: center; margin-top: 1.25rem; color: #333; font-size: 2rem;">Admin Dashboard</h2>
             
-            <!-- Dashboard Image
+            <!-- Dashboard Image -->
             <div style="width: 100%; height: 30rem; overflow: hidden; margin-bottom: 1.25rem;">
                 <img src="../public/assets/img/dashboard_image.jpg" alt="Restaurant Cover" style="width: 100%; height: 100%; object-fit: cover;">
-            </div> -->
-            
-            <!-- Chart Container -->
-            <div style="width: 80%; margin: 0 auto;">
-                <canvas id="adminDataChart" style="width: 100%; height: 25rem;"></canvas>
             </div>
             
-            <div style="display: flex; flex-wrap: wrap; gap: 1.25rem; padding: 1.25rem;">
-                <div style="background-color: #ffcccb; border-radius: 0.5rem; padding: 1.25rem; width: 23%; box-shadow: 0 0.125rem 0.3125rem rgba(0,0,0,0.2); min-width: 18.75rem;">
-                    <h5 style="text-align: center; margin-top: 0; color: #d32f2f; font-size: 1.5rem;">Reservations</h5>
-                    <p style="color: #333; font-size: 1.2rem;">Check reservations made by customers.</p>
-                    <div style="text-align: center;">
-                        <a href="reservation.php" style="display: inline-block; padding: 0.5rem 0.9375rem; background-color: #d32f2f; color: white; text-decoration: none; border-radius: 0.3125rem; font-size: 0.9rem; width: 80%;">Go to Reservations</a>
+            <div class="container" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+                <div class="card" style="flex: 0 0 23%; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-radius: 8px; background-color: #b3e0ff;">
+                    <div class="card-body" style="padding: 20px;">
+                        <h3>Total Food</h3>
+                        <p><?php
+                            $food_query = "SELECT COUNT(*) as total FROM menus WHERE type = 'food'";
+                            $food_result = mysqli_query($mysqli, $food_query);
+                            $food_count = mysqli_fetch_assoc($food_result)['total'];
+                            echo $food_count;
+                        ?></p>
                     </div>
                 </div>
-                <div style="background-color: #b3e0ff; border-radius: 0.5rem; padding: 1.25rem; width: 23%; box-shadow: 0 0.125rem 0.3125rem rgba(0,0,0,0.2); min-width: 18.75rem;">
-                    <h5 style="text-align: center; margin-top: 0; color: #1976d2; font-size: 1.5rem;">Tables</h5>
-                    <p style="color: #333; font-size: 1.2rem;">Manage tables and their availability.</p>
-                    <div style="text-align: center;">
-                        <a href="tables.php" style="display: inline-block; padding: 0.5rem 0.9375rem; background-color: #1976d2; color: white; text-decoration: none; border-radius: 0.3125rem; font-size: 0.9rem; width: 80%;">Go to Tables</a>
+
+                <div class="card" style="flex: 0 0 23%; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-radius: 8px; background-color: #ffe6cc;">
+                    <div class="card-body" style="padding: 20px;">
+                        <h3>Total Drinks</h3>
+                        <p><?php
+                            $drinks_query = "SELECT COUNT(*) as total FROM menus WHERE type = 'drink'";
+                            $drinks_result = mysqli_query($mysqli, $drinks_query);
+                            $drinks_count = mysqli_fetch_assoc($drinks_result)['total'];
+                            echo $drinks_count;
+                        ?></p>
                     </div>
                 </div>
-                <div style="background-color: #ccffcc; border-radius: 0.5rem; padding: 1.25rem; width: 23%; box-shadow: 0 0.125rem 0.3125rem rgba(0,0,0,0.2); min-width: 18.75rem;">
-                    <h5 style="text-align: center; margin-top: 0; color: #388e3c; font-size: 1.5rem;">Staff</h5>
-                    <p style="color: #333; font-size: 1.2rem;">Manage staff accounts and their roles.</p>
-                    <div style="text-align: center;">
-                        <a href="staff.php" style="display: inline-block; padding: 0.5rem 0.9375rem; background-color: #388e3c; color: white; text-decoration: none; border-radius: 0.3125rem; font-size: 0.9rem; width: 80%;">Go to Staff</a>
+
+                <div class="card" style="flex: 0 0 23%; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-radius: 8px; background-color: #f0ccff;">
+                    <div class="card-body" style="padding: 20px;">
+                        <h3>Total Desserts</h3>
+                        <p><?php
+                            $desserts_query = "SELECT COUNT(*) as total FROM menus WHERE type = 'dessert'";
+                            $desserts_result = mysqli_query($mysqli, $desserts_query);
+                            $desserts_count = mysqli_fetch_assoc($desserts_result)['total'];
+                            echo $desserts_count;
+                        ?></p>
                     </div>
                 </div>
-                <div style="background-color: #ffe6cc; border-radius: 0.5rem; padding: 1.25rem; width: 23%; box-shadow: 0 0.125rem 0.3125rem rgba(0,0,0,0.2); min-width: 18.75rem;">
-                    <h5 style="text-align: center; margin-top: 0; color: #f57c00; font-size: 1.5rem;">Inventory</h5>
-                    <p style="color: #333; font-size: 1.2rem;">Manage inventory items and their quantities.</p>
-                    <div style="text-align: center;">
-                        <a href="inventory.php" style="display: inline-block; padding: 0.5rem 0.9375rem; background-color: #f57c00; color: white; text-decoration: none; border-radius: 0.3125rem; font-size: 0.9rem; width: 80%;">Go to Inventory</a>
+
+                <div class="card" style="flex: 0 0 23%; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-radius: 8px; background-color: #ffe6cc;">
+                    <div class="card-body" style="padding: 20px;">
+                        <h3>Total Orders</h3>
+                        <p><?php
+                            $orders_query = "SELECT COUNT(*) as total FROM orders";
+                            $orders_result = mysqli_query($mysqli, $orders_query);
+                            $orders_count = mysqli_fetch_assoc($orders_result)['total'];
+                            echo $orders_count;
+                        ?></p>
                     </div>
                 </div>
-                <div style="background-color: #f0ccff; border-radius: 0.5rem; padding: 1.25rem; width: 23%; box-shadow: 0 0.125rem 0.3125rem rgba(0,0,0,0.2); min-width: 18.75rem;">
-                    <h5 style="text-align: center; margin-top: 0; color: #7c4dff; font-size: 1.5rem;">Staff Scheduling</h5>
-                    <p style="color: #333; font-size: 1.2rem;">Manage staff schedules and availability.</p>
-                    <div style="text-align: center;">
-                        <a href="scheduling.php" style="display: inline-block; padding: 0.5rem 0.9375rem; background-color: #7c4dff; color: white; text-decoration: none; border-radius: 0.3125rem; font-size: 0.9rem; width: 80%;">Go to Staff Scheduling</a>
+
+                <div class="card" style="flex: 0 0 23%; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-radius: 8px; background-color: #ccffcc;">
+                    <div class="card-body" style="padding: 20px;">
+                        <h3>Registered Users</h3>
+                        <p><?php
+                            $users_query = "SELECT COUNT(*) as total FROM users WHERE role = 'customer'";
+                            $users_result = mysqli_query($mysqli, $users_query);
+                            $users_count = mysqli_fetch_assoc($users_result)['total'];
+                            echo $users_count;
+                        ?></p>
                     </div>
                 </div>
-                <div style="background-color: #fff0cc; border-radius: 0.5rem; padding: 1.25rem; width: 23%; box-shadow: 0 0.125rem 0.3125rem rgba(0,0,0,0.2); min-width: 18.75rem;">
-                    <h5 style="text-align: center; margin-top: 0; color: #fbc02d; font-size: 1.5rem;">Time Off Request</h5>
-                    <p style="color: #333; font-size: 1.2rem;">Manage time off requests from staff members.</p>
-                    <div style="text-align: center;">
-                        <a href="reports_analytics.php" style="display: inline-block; padding: 0.5rem 0.9375rem; background-color: #fbc02d; color: black; text-decoration: none; border-radius: 0.3125rem; font-size: 0.9rem; width: 80%;">Go to Time Off Request</a>
+
+                <div class="card" style="flex: 0 0 23%; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-radius: 8px; background-color: #b3e0ff;">
+                    <div class="card-body" style="padding: 20px;">
+                        <h3>Total Transactions</h3>
+                        <p><?php
+                            $transactions_query = "SELECT COUNT(*) as total FROM orders";
+                            $transactions_result = mysqli_query($mysqli, $transactions_query);
+                            $transactions_count = mysqli_fetch_assoc($transactions_result)['total'];
+                            echo $transactions_count;
+                        ?></p>
                     </div>
                 </div>
-                <div style="background-color: #cce6ff; border-radius: 0.5rem; padding: 1.25rem; width: 23%; box-shadow: 0 0.125rem 0.3125rem rgba(0,0,0,0.2); min-width: 18.75rem;">
-                    <h5 style="text-align: center; margin-top: 0; color: #1976d2; font-size: 1.5rem;">Support</h5>
-                    <p style="color: #333; font-size: 1.2rem;">Support requests and inquiries.</p>
-                    <div style="text-align: center;">
-                        <a href="contact.php" style="display: inline-block; padding: 0.5rem 0.9375rem; background-color: #1976d2; color: white; text-decoration: none; border-radius: 0.3125rem; font-size: 0.9rem; width: 80%;">Go to Support</a>
+
+                <div class="card" style="flex: 0 0 23%; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-radius: 8px; background-color: #ffcccb;">
+                    <div class="card-body" style="padding: 20px;">
+                        <h3>Total Income</h3>
+                        <p><?php
+                            $income_query = "SELECT SUM(total) as total FROM orders WHERE status = 'delivered'";
+                            $income_result = mysqli_query($mysqli, $income_query);
+                            $income_total = mysqli_fetch_assoc($income_result)['total'];
+                            echo '₦' . number_format($income_total, 2);
+                        ?></p>
                     </div>
                 </div>
-                <div style="background-color: #ffccf0; border-radius: 0.5rem; padding: 1.25rem; width: 23%; box-shadow: 0 0.125rem 0.3125rem rgba(0,0,0,0.2); min-width: 18.75rem;">
-                    <h5 style="text-align: center; margin-top: 0; color: #d81b60; font-size: 1.5rem;">Customer Feedback</h5>
-                    <p style="color: #333; font-size: 1.2rem;">Read feedback submitted by customers.</p>
-                    <div style="text-align: center;">
-                        <a href="feedback.php" style="display: inline-block; padding: 0.5rem 0.9375rem; background-color: #d81b60; color: white; text-decoration: none; border-radius: 0.3125rem; font-size: 0.9rem; width: 80%;">Go to Feedback</a>
-                    </div>
-                </div>
-                <div style="background-color: #ccffe6; border-radius: 0.5rem; padding: 1.25rem; width: 23%; box-shadow: 0 0.125rem 0.3125rem rgba(0,0,0,0.2); min-width: 18.75rem;">
-                    <h5 style="text-align: center; margin-top: 0; color: #388e3c; font-size: 1.5rem;">Queries</h5>
-                    <p style="color: #333; font-size: 1.2rem;">Read and respond to queries submitted by customers.</p>
-                    <div style="text-align: center;">
-                        <a href="queries.php" style="display: inline-block; padding: 0.5rem 0.9375rem; background-color: #388e3c; color: white; text-decoration: none; border-radius: 0.3125rem; font-size: 0.9rem; width: 80%;">Go to Queries</a>
+
+                <div class="card" style="flex: 0 0 23%; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border-radius: 8px; background-color: #ccffcc;;">
+                    <div class="card-body" style="padding: 20px;">
+                        <h3>Total Expenses</h3>
+                        <p><?php
+                            $expenses_query = "SELECT SUM(total) as total FROM orders WHERE status = 'delivered'";
+                            $expenses_result = mysqli_query($mysqli, $expenses_query);
+                            $expenses_total = mysqli_fetch_assoc($expenses_result)['total'];
+                            echo '₦' . number_format($expenses_total, 2);
+                        ?></p>
                     </div>
                 </div>
             </div>
+            
         </main>
 
         <?php
