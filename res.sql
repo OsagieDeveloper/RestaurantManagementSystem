@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2025 at 10:11 AM
+-- Generation Time: May 11, 2025 at 08:44 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -113,7 +113,7 @@ CREATE TABLE `menus` (
 --
 
 INSERT INTO `menus` (`m_id`, `id`, `name`, `type`, `price`, `description`, `image`) VALUES
-(1, 'menu681fe958ee674', 'Fried Chicken', 'food', '12000', 'This is a fried chicken', './public/assets/img/menu/menu681fe958ee674_photo-1551024601-bec78aea704b.jpg');
+(1, 'menu681fe958ee674', 'Fried Chicken', 'appetizers', '12000', 'This is a fried chicken', './public/assets/img/menu/menu681fe958ee674_photo-1551024601-bec78aea704b.jpg');
 
 -- --------------------------------------------------------
 
@@ -137,7 +137,8 @@ CREATE TABLE `menu_items` (
 
 CREATE TABLE `orders` (
   `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `reservation_id` varchar(200) DEFAULT NULL,
   `total` decimal(10,2) NOT NULL,
   `status` enum('pending','confirmed','cooking','ready','delivered','cancelled') DEFAULT 'pending',
   `created_at` datetime NOT NULL
@@ -147,12 +148,17 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `user_id`, `total`, `status`, `created_at`) VALUES
-(1, 8, 12600.00, 'confirmed', '2025-05-11 01:05:25'),
-(2, 8, 113400.00, 'cooking', '2025-05-11 01:23:23'),
-(3, 8, 126000.00, 'delivered', '2025-05-11 01:24:56'),
-(4, 8, 138600.00, 'pending', '2025-05-11 01:25:57'),
-(5, 8, 12600.00, 'pending', '2025-05-11 09:04:25');
+INSERT INTO `orders` (`id`, `user_id`, `reservation_id`, `total`, `status`, `created_at`) VALUES
+(1, 8, NULL, 12600.00, 'confirmed', '2025-05-11 01:05:25'),
+(2, 8, NULL, 113400.00, 'cooking', '2025-05-11 01:23:23'),
+(3, 8, NULL, 126000.00, 'delivered', '2025-05-11 01:24:56'),
+(4, 8, NULL, 138600.00, 'pending', '2025-05-11 01:25:57'),
+(5, 8, NULL, 12600.00, 'pending', '2025-05-11 09:04:25'),
+(7, 6, '1', 12000.00, 'pending', '2025-05-11 16:32:04'),
+(9, NULL, NULL, 156.00, '', '2025-05-11 19:27:34'),
+(10, NULL, NULL, 899.00, '', '2025-05-11 19:32:19'),
+(11, NULL, NULL, 899.00, '', '2025-05-11 19:32:51'),
+(12, NULL, NULL, 899.00, '', '2025-05-11 19:33:17');
 
 -- --------------------------------------------------------
 
@@ -178,7 +184,8 @@ INSERT INTO `order_items` (`id`, `order_id`, `menu_item_id`, `menu_item_id_n`, `
 (19, 2, NULL, '0', 9, 12000.00),
 (20, 3, NULL, 'menu681fe958ee674', 10, 12000.00),
 (21, 4, NULL, 'menu681fe958ee674', 11, 12000.00),
-(22, 5, NULL, 'menu681fe958ee674', 1, 12000.00);
+(22, 5, NULL, 'menu681fe958ee674', 1, 12000.00),
+(23, 12, 0, 'menu681fe958ee674', 1, 12000.00);
 
 -- --------------------------------------------------------
 
@@ -189,6 +196,7 @@ INSERT INTO `order_items` (`id`, `order_id`, `menu_item_id`, `menu_item_id_n`, `
 CREATE TABLE `reservations` (
   `id` int(11) NOT NULL,
   `reservation_id` varchar(50) NOT NULL,
+  `user_id` int(20) NOT NULL,
   `customer_name` varchar(255) NOT NULL,
   `table_number` int(11) NOT NULL,
   `date_time` datetime NOT NULL,
@@ -199,6 +207,13 @@ CREATE TABLE `reservations` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `reservations`
+--
+
+INSERT INTO `reservations` (`id`, `reservation_id`, `user_id`, `customer_name`, `table_number`, `date_time`, `time_of_event`, `num_guests`, `special_request`, `status`, `created_at`, `updated_at`) VALUES
+(1, '1', 6, 'Nathaniel', 2, '2025-05-11 16:58:59', '15:58:59', 2, 'nil', 'Confirmed', '2025-05-11 15:00:00', '2025-05-11 15:31:49');
 
 -- --------------------------------------------------------
 
@@ -366,8 +381,7 @@ ALTER TABLE `menu_items`
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `order_items`
@@ -462,19 +476,19 @@ ALTER TABLE `menu_items`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `staff`
@@ -521,6 +535,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `orders`
   ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `order_items`
+--
+ALTER TABLE `order_items`
+  ADD CONSTRAINT `order_items_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

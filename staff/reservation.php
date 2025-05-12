@@ -72,6 +72,7 @@ require_once './includes/details.php';
                                             <option value="Completed" <?php echo $row['status'] == 'Completed' ? 'selected' : ''; ?>>Completed</option>
                                             <option value="Cancelled" <?php echo $row['status'] == 'Cancelled' ? 'selected' : ''; ?>>Cancelled</option>
                                         </select>
+                                        <a href="add_orders.php?reservation_id=<?php echo htmlspecialchars($row['reservation_id']); ?>" class="btn btn-primary btn-sm">Place Order</a>
                                     </td>
                                 </tr>
                             <?php }

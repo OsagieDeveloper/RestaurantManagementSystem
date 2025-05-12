@@ -10,7 +10,7 @@
     // $password = $env['DB_PASSWORD'];
 
     $host = "localhost";
-    $dbname = "res";
+    $dbname = "restaurant";
     $user = "root";
     $password = "";
 

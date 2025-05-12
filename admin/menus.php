@@ -165,9 +165,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         name="type" 
                         required 
                         style="padding: 12px; border: 1px solid #ccc; border-radius: 4px;">
-                        <option value="food">Food</option>
-                        <option value="drink">Drink</option>
-                        <option value="dessert">Dessert</option>
+                          <option value="dishes">Dishes</option>
+                            <option value="drinks">Drinks</option>
+                            <option value="dessert">Dessert</option>
+                            <option value="appetizer">Appetizer</option>
                     </select>
                     
                     <label for="image">Image:</label>
@@ -253,9 +254,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 
                 <label for="edit_type">Type:</label>
                 <select id="edit_type" name="edit_type" required style="padding: 12px; border: 1px solid #ccc; border-radius: 4px;">
-                    <option value="food">Food</option>
-                    <option value="drink">Drink</option>
+                    <option value="dishes">Dishes</option>
+                    <option value="drinks">Drinks</option>
                     <option value="dessert">Dessert</option>
+                    <option value="appetizer">Appetizer</option>
                 </select>
                 
                 <label for="edit_image">New Image (optional):</label>

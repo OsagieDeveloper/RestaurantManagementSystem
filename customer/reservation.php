@@ -3,6 +3,12 @@
     require_once './config/database.php';
     require_once './model/function.php';
     require_once './model/reservation.php';
+
+    $stmt = $mysqli->prepare("SELECT * FROM users WHERE email = ?");
+    $stmt->bind_param("s", $_SESSION['email']);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $user = $result->fetch_assoc();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,6 +35,7 @@
                 </p>
                 <form method="POST" class="needs-validation" novalidate>
                     <div class="mb-3">
+                        <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
                         <label for="name" class="form-label">Name</label>
                         <input
                             type="text"

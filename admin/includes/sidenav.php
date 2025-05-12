@@ -16,9 +16,12 @@
 
         <a href="./reservation">
             <span class="material-symbols-outlined"> restaurant </span>
-            <h3>Reservations</h3>
+            <h3>Reservations</h3>            
+        </a>
 
-            
+        <a href="./add_orders_only">
+            <span class="material-symbols-outlined"> receipt </span>
+            <h3>Add Orders</h3>
         </a>
 
         <a href="./orders">

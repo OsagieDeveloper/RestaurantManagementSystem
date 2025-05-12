@@ -31,7 +31,7 @@
                 }else if($role === 'Customer'){
                     if (loginStaff($email, $password)) {
                         $suc = "Login Successful";
-                        header('Location: ./customer');
+                        header('Location: ./');
                         exit();
                     } else {
                         $err = "Invalid credentials.";

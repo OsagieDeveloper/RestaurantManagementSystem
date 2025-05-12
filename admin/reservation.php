@@ -46,7 +46,7 @@ if(!isLoggedIn()){
                     <tbody>
                         <?php
                         // Query to fetch all reservations from the database
-                        $query = "SELECT reservation_id, customer_name, table_number, date_time, num_guests, special_request, status FROM reservations";
+                        $query = "SELECT reservation_id, user_id, customer_name, table_number, date_time, num_guests, special_request, status FROM reservations";
                         $result = $mysqli->query($query);
 
                         // Check if there are results
@@ -71,6 +71,7 @@ if(!isLoggedIn()){
                                             <option value="Completed" <?php echo $row['status'] == 'Completed' ? 'selected' : ''; ?>>Completed</option>
                                             <option value="Cancelled" <?php echo $row['status'] == 'Cancelled' ? 'selected' : ''; ?>>Cancelled</option>
                                         </select>
+                                        <a href="add_orders.php?reservation_id=<?php echo htmlspecialchars($row['reservation_id']); ?>" class="btn btn-primary btn-sm">Place Order</a>
                                     </td>
                                 </tr>
                             <?php }

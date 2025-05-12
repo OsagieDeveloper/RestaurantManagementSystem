@@ -29,6 +29,11 @@
             <h3>Inventory</h3>
         </a>
 
+        <a href="./add_orders_only">
+            <span class="material-symbols-outlined"> receipt </span>
+            <h3>Add Orders</h3>
+        </a>
+
         <a href="./orders">
             <span class="material-symbols-outlined"> receipt </span>
             <h3>Orders</h3>
