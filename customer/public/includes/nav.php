@@ -30,7 +30,7 @@
             $profileName = isset($user['full_name']) ? $user['full_name'] : 'User';
             echo '<a href="./profile.php" class="profile-link"><img src="https://i.postimg.cc/k5kz0TjQ/1381511-588644811197844-1671954779-n.jpg" alt="profile picture" class="profile-pic"><span class="profile-name">' . htmlspecialchars($profileName) . '</span></a>';
           } else {
-            echo '<a href="../login.php" class="btn"><span><i class="ri-login-box-line"></i></span> Login</a>';
+            echo '<a href="./login.php" class="btn"><span><i class="ri-login-box-line"></i></span> Login</a>';
           }
         ?>
       </li>
@@ -46,7 +46,7 @@
           $profileName = isset($user['full_name']) ? $user['full_name'] : 'User';
           echo '<a href="./profile.php" class="profile-link"><img src="https://i.postimg.cc/k5kz0TjQ/1381511-588644811197844-1671954779-n.jpg" alt="profile picture" class="profile-pic"><span class="profile-name">' . htmlspecialchars($profileName) . '</span></a>';
         } else {
-          echo '<a href="../login.php" class="btn"><span><i class="ri-login-box-line"></i></span> Login</a>';
+          echo '<a href="./login.php" class="btn"><span><i class="ri-login-box-line"></i></span> Login</a>';
         }
       ?>
     </div>
