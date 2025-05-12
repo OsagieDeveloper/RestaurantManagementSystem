@@ -71,12 +71,12 @@
         return isset($_SESSION['email']) && isset($_SESSION['user_id']);
     }
 
-    function createReservation($customerName, $tableNumber, $dateTime, $time, $numGuests, $specialRequests) {
+    function createReservation($customerName, $user_id, $tableNumber, $dateTime, $time, $numGuests, $specialRequests) {
         global $mysqli;
         $status = 'Pending';
         $reservation_id = "r".uniqid();
-        $stmt = $mysqli->prepare("INSERT INTO reservations (reservation_id, customer_name, table_number, date_time, time_of_event, num_guests, special_request, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param('ssisssss', $reservation_id, $customerName, $tableNumber, $dateTime, $time, $numGuests, $specialRequests, $status);
+        $stmt = $mysqli->prepare("INSERT INTO reservations (reservation_id, customer_name, user_id, table_number, date_time, time_of_event, num_guests, special_request, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param('ssissssss', $reservation_id, $customerName, $user_id, $tableNumber, $dateTime, $time, $numGuests, $specialRequests, $status);
         return $stmt->execute();
     }
 
